@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class UserProfile(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     User_email  = models.EmailField(max_length=70,blank=True,unique=True)
     password    = models.CharField(max_length=12)

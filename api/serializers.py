@@ -13,7 +13,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         model = UserProfile
         fields = ('id', 'user', 'User_email', 'password')
 
-
+        
 class TaskSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source= 'user.username')
     class Meta:
@@ -54,11 +54,9 @@ class RegisterSerializer(serializers.ModelSerializer):
     user.set_password(validated_data['password'])
     user.save()
     return user
-  
-
-
-
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
+
+
 
